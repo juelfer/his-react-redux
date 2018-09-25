@@ -43,8 +43,10 @@ const api = {
     createUser(user){
        users.push(user);
        localStorage.setItem('users', users);
+    },
+    getPatients(){
+        return users.filter(user => user.role === "patient" );
     }
 }
-
 
 export default api;

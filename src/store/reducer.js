@@ -1,3 +1,5 @@
+import api from "../services/api";
+
 const initialState = {
     auth: null,
     histories: [],
@@ -25,14 +27,12 @@ function reducer( state = initialState, action ) {
             return _state;
         }
 
-    case 'DOCTOR_LOGGED_IN':
+    case 'LOAD_PATIENTS':
         {
             let _state = {
-                histories: action.payload,
-                patients: action.payload,
-                auth: action.payload
+                ...state,
+                patients: action.payload
             };
-
             return _state;
         }
 
