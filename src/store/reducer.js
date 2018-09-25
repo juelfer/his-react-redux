@@ -13,7 +13,7 @@ function reducer( state = initialState, action ) {
                 auth: action.payload
             };
 
-            return _state
+            return _state;
         }
     case 'USER_LOGGED_OUT':
         {
@@ -22,7 +22,18 @@ function reducer( state = initialState, action ) {
                 auth: null
             };
 
-            return _state
+            return _state;
+        }
+
+    case 'DOCTOR_LOGGED_IN':
+        {
+            let _state = {
+                histories: action.payload,
+                patients: action.payload,
+                auth: action.payload
+            };
+
+            return _state;
         }
 
     default:
