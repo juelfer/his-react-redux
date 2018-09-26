@@ -45,13 +45,11 @@ class dashboard extends React.Component {
         <section className="dashboard">
           <h1> Dashboard</h1>
 
-          <h3>
-            Tu role es: {role}{" "}
-            {this.props.auth && <button onClick={this.logout}>Logout</button>}
-          </h3>
-          <h5>
-            {this.props.auth ? name + " is logged in." : "no user is logged in"}
-          </h5>
+          <button onClick={this.logout}>Logout</button>
+         
+          <h4>
+            {this.props.auth ? role + " " + name + " is logged in." : "no user is logged in"}
+          </h4>
 
          {
            links.map(
