@@ -7,6 +7,7 @@ import NotFound from "./notFound";
 import PatientsList from "./components/patientsList.jsx";
 import { Provider } from "react-redux";
 import store from './store';
+import CreateUser from './components/createUser.jsx';
 class App extends Component {
   render() {
     return  (
@@ -17,6 +18,7 @@ class App extends Component {
                 <Route path="/" component={Dashboard} exact />
                 <Route path="/login" component={Login} exact />
                 <Route path="/patientsList" component={PatientsList} exact/>
+                <Route path="/createUser" component={CreateUser} exact/>
                 <Redirect path="/entrar" to="/login" />
                 <Route component={NotFound} />
               </Switch>

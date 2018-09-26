@@ -12,7 +12,7 @@ class patientsList extends React.Component {
         return (
             <div>
                 <h1>PatientsLists</h1>
-                {this.props.patients.map(item => <div>{item.name}</div>)}
+                {this.props.patients.map(item => <div key={item.name}>{item.name}</div>)}
             </div>
 
         );

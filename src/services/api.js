@@ -1,4 +1,4 @@
-const users = localStorage.getItem( 'users' ) || [ {
+var users =JSON.parse( localStorage.getItem( 'usersHISRedux' ) )|| [ {
     role: 'admin',
     username: 'admin',
     name: 'Juan',
@@ -42,7 +42,7 @@ const api = {
     },
     createUser(user){
        users.push(user);
-       localStorage.setItem('users', users);
+       localStorage.setItem('usersHISRedux', JSON.stringify(users));
     },
     getPatients(){
         return users.filter(user => user.role === "patient" );
