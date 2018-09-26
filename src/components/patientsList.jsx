@@ -19,38 +19,6 @@ class patientsList extends React.Component {
     }
 }
 
-/*class patientsList extends React.Component {
-    constructor(props) {
-        super(props);
-        props.loadPatients();
-        
-    }
-    render() {
-        return <div>
-            <h1> Lista de pacientes </h1>
-            <ul className ="patientsList">
-                {/*{patients.map(patient => (
-                    <li>{patient.name}</li>
-                ))}*/
-             /*   {this.props.patients.map(item => <div>{item.name}</div>)}
-            
-            </ul> 
-        </div>
-    }
-
-}
-
-/*const PatientList = connect (
-    state => ({
-        patients: state.patients
-    }),
-    dispatch => ({
-            patients: api.getPatients(),
-            type: "LOAD_PATIENT",
-            payload: patients
-          })
-)(patientlist)*/
-
 const PatientsList = connect(
     state => ({
         auth: state.auth,

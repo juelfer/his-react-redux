@@ -1,4 +1,4 @@
-var users =JSON.parse( localStorage.getItem( 'usersHISRedux' ) )|| [ {
+const users =JSON.parse( localStorage.getItem( 'usersHISRedux' ) )|| [ {
     role: 'admin',
     username: 'admin',
     name: 'Juan',
@@ -35,6 +35,24 @@ var users =JSON.parse( localStorage.getItem( 'usersHISRedux' ) )|| [ {
 }
   ];
 
+const histories=JSON.parse( localStorage.getItem( 'usersHISRedux' ) )|| [
+    {
+        uid: '',
+        doctorid: '',
+        history: ''
+    },
+    {
+        uid: '',
+        doctorid: '',
+        history: ''
+    },
+    {
+        uid: '',
+        doctorid: '',
+        history: ''
+    }
+];
+
 
 const api = {
     login(username, password) {
@@ -46,6 +64,9 @@ const api = {
     },
     getPatients(){
         return users.filter(user => user.role === "patient" );
+    },
+    getHistories(patientId){
+        return histories.filter(history => history.uid === patientId );
     }
 }
 

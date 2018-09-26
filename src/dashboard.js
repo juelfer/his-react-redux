@@ -20,7 +20,7 @@ class dashboard extends React.Component {
           roles: ["admin", "doctor"]
         },
         {
-          to: "/histories",
+          to: "/historiesList",
           text: "Histories list",
           roles: ["admin", "doctor"]
         },

@@ -31,7 +31,15 @@ function reducer( state = initialState, action ) {
                 ...state,
                 patients: action.patients
             };
+            return _state
+        }
 
+        case 'LOAD_HISTORIES':
+        {
+            let _state = {
+                ...state,
+                histories: action.histories
+            };
             return _state
         }
 
