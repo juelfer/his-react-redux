@@ -1,6 +1,7 @@
 import React from "react";
 import api from "../services/api";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class historiesList extends React.Component {
 
@@ -12,7 +13,7 @@ class historiesList extends React.Component {
         return (
             <div>
                 <h1>HistoriesList</h1>
-                {this.props.histories.map(item => <div key={item.name}>{item.name}</div>)}
+                {this.props.histories.map(item => <Link key={item.uid} to="/historyDetail/:uid"><div key={item.uid}>{item.uid}</div></Link>)}
             </div>
 
         );

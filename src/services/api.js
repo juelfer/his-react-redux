@@ -35,21 +35,21 @@ const users =JSON.parse( localStorage.getItem( 'usersHISRedux' ) )|| [ {
 }
   ];
 
-const histories=JSON.parse( localStorage.getItem( 'usersHISRedux' ) )|| [
+const histories=JSON.parse( localStorage.getItem( 'historiesHISRedux' ) )|| [
     {
-        uid: '',
-        doctorid: '',
-        history: ''
+        uid: '4',
+        doctorid: '2',
+        history: ['2/7 Ingresa en urgencias con dolor de cabeza. Se le extirpa la cabeza y se le da el alta']
     },
     {
-        uid: '',
-        doctorid: '',
-        history: ''
+        uid: '5',
+        doctorid: '2',
+        history: ['18/6 Ingresa en urgencias con un fuerte traumatismo provocado por caerle encima un suricato. Se le da el alta inmediata. El suricato evoluciona favorablemente', '20/8 Acude para tratarse de la L-3, entra por la M-30 y llega tarde']
     },
     {
-        uid: '',
-        doctorid: '',
-        history: ''
+        uid: '6',
+        doctorid: '2',
+        history: ['20/9 Está sano como un roble. Se le aplica abono']
     }
 ];
 
@@ -65,7 +65,13 @@ const api = {
     getPatients(){
         return users.filter(user => user.role === "patient" );
     },
-    getHistories(patientId){
+    getPatient(uid){
+        return users.find(user => user.uid === uid )
+    },
+    getHistories(){
+        return histories;
+    },
+    getHistory(patientId){
         return histories.filter(history => history.uid === patientId );
     }
 }

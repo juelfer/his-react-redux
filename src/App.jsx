@@ -10,6 +10,8 @@ import PatientsList from "./components/patientsList.jsx";
 import store from './store';
 import CreateUser from './components/createUser.jsx';
 import HistoriesList from './components/historiesList.jsx';
+import PatientDetail from "./components/patientDetail";
+//import HistoryDetail from './components/historyDetail.jsx';
 
 class App extends Component {
   render() {
@@ -22,7 +24,9 @@ class App extends Component {
                 <Route path="/login" component={Login} exact />
                 <Route path="/patientsList" component={PatientsList} exact/>
                 <Route path="/createUser" component={CreateUser} exact/>
-                <Route path="/historiesList" component={HistoriesList} exact/>                
+                <Route path="/historiesList" component={HistoriesList} exact/>
+    {/*<Route path="/historyDetail/:uid" component={HistoryDetail} />  */}   
+                <Route path="/patientDetail/:uid" component={PatientDetail} exact />       
                 <Redirect path="/entrar" to="/login" />
                 <Route component={NotFound} />
               </Switch>
