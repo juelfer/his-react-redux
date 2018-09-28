@@ -66,13 +66,16 @@ const api = {
         return users.filter(user => user.role === "patient" );
     },
     getPatient(uid){
-        return users.find(user => user.uid === uid )
+        return users.find(user => user.uid === uid);
     },
     getHistories(){
         return histories;
     },
     getHistory(uid){
         return histories.find(history => history.uid === uid );
+    },
+    getDoctor(doctorid){
+        return users.find(user => user.uid === doctorid);
     }
 }
 

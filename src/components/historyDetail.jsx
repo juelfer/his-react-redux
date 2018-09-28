@@ -6,18 +6,19 @@ class historyDetail extends React.Component{
     constructor(props){
         super(props);
         props.loadHistory(this.props.match.params.uid.toString());
+        //props.loadDoctor(this.props.history.doctorid.toString());
         }
     
     render() {
+        const doctor = api.getDoctor(this.props.history.doctorid);
         return (
             <div>
-                {console.log("id:"+this.props.match.params.uid)}
                 <h1>Historial del paciente</h1>
                 <div>
-                   ID: {this.props.history.uid} <br/>
-                   Doctor: {this.props.history.doctorid}<br/>
-                   Historial: <br/>
-                   {this.props.history.history}
+                    ID: {this.props.history.uid} <br/>
+                    Doctor: {doctor.name}<br/>
+                    Historial: <br/>
+                    {this.props.history.history}<br/>
                 </div>
             </div>
         );

@@ -3,7 +3,8 @@ const initialState = {
     histories: [],
     patients: [],
     patient: {},
-    history: {}
+    history: {},
+    doctor: {}
 }
 
 function reducer( state = initialState, action ) {
