@@ -9,15 +9,16 @@ class patientDetail extends React.Component {
         }
     
     render() {
-        return (
+        const canSee = api.canSeeHistory(this.props.auth.role);
+        return ((this.props.match.params.uid.toString() === this.props.auth.uid || canSee) ? (
             <div>
-                {console.log("id:"+this.props.match.params.uid)}
                 <h1>Datos del paciente</h1>
                 <div>
                    Nombre: {this.props.patient.name}<br />
                    ID: {this.props.patient.uid}
                 </div>
-            </div>
+            </div> ) :
+            (<div>Este usuario no tiene acceso a los datos de este paciente</div>)
         );
     }
 }

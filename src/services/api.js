@@ -37,6 +37,18 @@ const users =JSON.parse( localStorage.getItem( 'usersHISRedux' ) )|| [ {
 
 const histories=JSON.parse( localStorage.getItem( 'historiesHISRedux' ) )|| [
     {
+        uid:'1',
+    },
+    {
+        uid:'2',
+    },
+    {
+        uid:'3',
+    },
+    {
+        uid:'6',
+    },
+    {
         uid: '4',
         doctorid: '2',
         history: ['2/7 Ingresa en urgencias con dolor de cabeza. Se le extirpa la cabeza y se le da el alta']
@@ -60,6 +72,7 @@ const api = {
     },
     createUser(user){
        users.push(user);
+       //histories.push({uid: user.uid});
        localStorage.setItem('usersHISRedux', JSON.stringify(users));
     },
     getPatients(){
@@ -76,6 +89,10 @@ const api = {
     },
     getDoctor(doctorid){
         return users.find(user => user.uid === doctorid);
+    },
+    canSeeHistory(role){
+        if (role === "admin" || role === "doctor") 
+            return true;
     }
 }
 

@@ -11,7 +11,9 @@ class historyDetail extends React.Component{
     
     render() {
         const doctor = api.getDoctor(this.props.history.doctorid);
-        return (
+        const canSee = api.canSeeHistory(this.props.auth.role);
+        return (this.props.history.history ? (
+            (this.props.match.params.uid.toString() === this.props.auth.uid || canSee) ? (
             <div>
                 <h1>Historial del paciente</h1>
                 <div>
@@ -21,7 +23,7 @@ class historyDetail extends React.Component{
                     {this.props.history.history}<br/>
                 </div>
             </div>
-        );
+        ) : (<div>Usuario no autorizado</div>)) : (<div>Historial no encontrado</div>));
     }
 }
 

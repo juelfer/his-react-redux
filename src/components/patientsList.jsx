@@ -13,7 +13,10 @@ class patientsList extends React.Component {
         return (
             <div>
                 <h1>PatientsLists</h1>
-                    {this.props.patients.map(item => <Link key={item.uid} to={`/patientDetail/${item.uid}`}><div key={item.uid}>{item.name}</div></Link>)}
+                    {this.props.patients.map(
+                        item => <Link key={item.uid}
+                         to={`/patientDetail/${item.uid}`}>
+                         <div key={item.uid}>{item.name}</div></Link>)}
             </div>
 
         );
