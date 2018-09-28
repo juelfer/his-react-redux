@@ -6,21 +6,19 @@ class historyDetail extends React.Component{
     constructor(props){
         super(props);
         props.loadHistory(this.props.match.params.uid.toString());
-        //props.loadDoctor(this.props.history.doctorid.toString());
         }
     
     render() {
         const doctor = api.getDoctor(this.props.history.doctorid);
+        const patient = api.getPatient(this.props.history.uid);
         const canSee = api.canSeeHistory(this.props.auth.role);
         return (this.props.history.history ? (
             (this.props.match.params.uid.toString() === this.props.auth.uid || canSee) ? (
             <div>
-                <h1>Historial del paciente</h1>
+                <h1>Historial de {patient.name}</h1>
                 <div>
-                    ID: {this.props.history.uid} <br/>
-                    Doctor: {doctor.name}<br/>
-                    Historial: <br/>
-                    {/*this.props.history.history*/}
+                    Le atendió el doctor {doctor.name}<br/>
+                    <p>Historial: </p>
                     {this.props.history.history.map(
                         item => <div key={item}>{item}</div>)}<br/>
                 </div>
