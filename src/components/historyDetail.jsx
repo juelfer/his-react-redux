@@ -20,7 +20,9 @@ class historyDetail extends React.Component{
                     ID: {this.props.history.uid} <br/>
                     Doctor: {doctor.name}<br/>
                     Historial: <br/>
-                    {this.props.history.history}<br/>
+                    {/*this.props.history.history*/}
+                    {this.props.history.history.map(
+                        item => <div key={item}>{item}</div>)}<br/>
                 </div>
             </div>
         ) : (<div>Usuario no autorizado</div>)) : (<div>Historial no encontrado</div>));

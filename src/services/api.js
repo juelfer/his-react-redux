@@ -56,7 +56,7 @@ const histories=JSON.parse( localStorage.getItem( 'historiesHISRedux' ) )|| [
     {
         uid: '5',
         doctorid: '2',
-        history: ['18/6 Ingresa en urgencias con un fuerte traumatismo provocado por caerle encima un suricato. Se le da el alta inmediata. El suricato evoluciona favorablemente', '20/8 Acude para tratarse de la L-3, entra por la M-30 y llega tarde']
+        history: ['18/6 Ingresa en urgencias con un fuerte traumatismo provocado por caerle encima un suricato. Se le da el alta inmediata. El suricato evoluciona favorablemente', '20/8 Acude para tratarse de la vértebra T-12, entra por la V-30 desde la A-57 y llega tarde']
     },
     {
         uid: '7',
