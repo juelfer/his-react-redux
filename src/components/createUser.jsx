@@ -23,12 +23,17 @@ class CreateUser extends React.Component {
     handleSubmit(ev) {
         ev.preventDefault();
         api.createUser(this.state);
+        this.cancelCourse();
     }
+
+    cancelCourse = () => { 
+        document.getElementById("newuser").reset();
+      }
 
     render() {
         return (
-            <div className="userregistry">
-                <form onSubmit={this.handleSubmit.bind(this)}>
+            <div className="userRegistry">
+                <form id="newuser" onSubmit={this.handleSubmit.bind(this)}>
                     <label>Rol: </label>
                     <input type="text" name="role" placeholder="introduzca rol" value={this.state.newrole} onChange={this.handleChange}></input><br/>
                     <label>ID: </label>
@@ -40,7 +45,6 @@ class CreateUser extends React.Component {
                     <label>Contraseña: </label>
                     <input type="text" name="password" placeholder="introduzca contraseña" value={this.state.newpass} onChange={this.handleChange}></input><br/>
                     <button type="submit">Registrar</button>
-                    
                 </form>   
             </div>
         )

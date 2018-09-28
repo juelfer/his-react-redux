@@ -72,7 +72,7 @@ const api = {
     },
     createUser(user){
        users.push(user);
-       //histories.push({uid: user.uid});
+       histories.push({uid: user.uid});
        localStorage.setItem('usersHISRedux', JSON.stringify(users));
     },
     getPatients(){

@@ -8,8 +8,8 @@ class login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "nombre de usuario",
-      password: "contraseña",
+      username: "",
+      password: "",
       error: null
     };
   }
@@ -45,12 +45,14 @@ class login extends React.Component {
           <input
             type="text"
             name="username"
+            placeholder="nombre de usuario"
             value={this.state.username}
             onChange={this.handleChange.bind(this)}
           />
           <input
             type="password"
             name="password"
+            placeholder="contraseña"
             value={this.state.password}
             onChange={this.handleChange.bind(this)}
           />
