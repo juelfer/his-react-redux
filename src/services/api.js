@@ -47,10 +47,10 @@ const histories=JSON.parse( localStorage.getItem( 'historiesHISRedux' ) )|| [
         history: ['18/6 Ingresa en urgencias con un fuerte traumatismo provocado por caerle encima un suricato. Se le da el alta inmediata. El suricato evoluciona favorablemente', '20/8 Acude para tratarse de la L-3, entra por la M-30 y llega tarde']
     },
     {
-        uid: '6',
+        uid: '7',
         doctorid: '2',
         history: ['20/9 Está sano como un roble. Se le aplica abono']
-    }
+    },
 ];
 
 
@@ -71,8 +71,8 @@ const api = {
     getHistories(){
         return histories;
     },
-    getHistory(patientId){
-        return histories.filter(history => history.uid === patientId );
+    getHistory(uid){
+        return histories.find(history => history.uid === uid );
     }
 }
 

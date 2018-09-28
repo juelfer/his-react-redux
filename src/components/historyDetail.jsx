@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 class historyDetail extends React.Component{
     constructor(props){
         super(props);
-        props.loadHistory();
-    }
+        props.loadHistory(this.props.match.params.uid.toString());
+        }
     
     render() {
         return (
@@ -14,14 +14,10 @@ class historyDetail extends React.Component{
                 {console.log("id:"+this.props.match.params.uid)}
                 <h1>Historial del paciente</h1>
                 <div>
-                    {this.props.userHistories.map(item => 
-                        <div key={item.uid}>
-                            {item.uid}
-                            {item.doctorid}
-                            {item.histories}
-                            )}                            
-                        </div>
-                    )}
+                   ID: {this.props.history.uid} <br/>
+                   Doctor: {this.props.history.doctorid}<br/>
+                   Historial: <br/>
+                   {this.props.history.history}
                 </div>
             </div>
         );
@@ -31,12 +27,15 @@ class historyDetail extends React.Component{
 const HistoryDetail = connect(
     state => ({
         auth: state.auth,
-        histories: state.histories
+        history: state.history
     }),
     dispatch => ({
-        loadHistory: () => {
-            let history = api.getHistory();
-            dispatch({type:'LOAD_HISTORY', histories: history})
+        loadHistory: (uid) => {
+            let history = api.getHistory(uid);
+            dispatch({
+                type:'LOAD_HISTORY',
+                payload: history
+            })
         }
     })
 )(historyDetail);

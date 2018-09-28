@@ -1,6 +1,7 @@
 import React from "react";
 import api from "../services/api";
 import { connect } from "react-redux";
+import {Link} from "react-router-dom";
 
 class patientsList extends React.Component {
     constructor(props) {
@@ -12,8 +13,7 @@ class patientsList extends React.Component {
         return (
             <div>
                 <h1>PatientsLists</h1>
-                    {this.props.patients.map(item => <div key={item.name}>{item.name}</div>)}
-                {/*{this.props.patients.map(item => <Link key={item.name} text={item.name} to={detailroute}+{item.uid}>{item.name}</Link>)}*/}
+                    {this.props.patients.map(item => <Link key={item.uid} to={`/patientDetail/${item.uid}`}><div key={item.uid}>{item.name}</div></Link>)}
             </div>
 
         );

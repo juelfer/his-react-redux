@@ -30,8 +30,8 @@ class dashboard extends React.Component {
           roles: ["admin", "technical"]
         },
         {
-          to: "/patientDetail/"+ uid ,
-          text: "Patients detail",
+          to: "/patientDetail/"+ uid,
+          text: "Patient detail",
           roles: ["admin", "patient"]
         },
         {

@@ -13,9 +13,9 @@ class historiesList extends React.Component {
         return (
             <div>
                 <h1>HistoriesList</h1>
-                {this.props.histories.map(item => <Link key={item.uid} to="/historyDetail/:uid"><div key={item.uid}>{item.uid}</div></Link>)}
+                {this.props.histories.map(item => <Link key={item.uid} to={`/historyDetail/${item.uid}`}><div key={item.uid}>{item.uid}</div></Link>)}
             </div>
-
+//{this.props.patients.map(item => <Link key={item.uid} to={`/patientDetail/${item.uid}`}><div key={item.uid}>{item.name}</div></Link>)}
         );
     }
 }

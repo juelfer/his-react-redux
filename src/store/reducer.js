@@ -2,7 +2,8 @@ const initialState = {
     auth: null,
     histories: [],
     patients: [],
-    patient: {}
+    patient: {},
+    history: {}
 }
 
 function reducer( state = initialState, action ) {
@@ -48,7 +49,7 @@ function reducer( state = initialState, action ) {
         {
             let _state = {
                 ...state,
-                history: action.history
+                history: action.payload
             };
             return _state
         }
