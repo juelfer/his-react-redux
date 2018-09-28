@@ -3,7 +3,7 @@ const initialState = {
     histories: [],
     patients: [],
     patient: {},
-    history: {},
+    historyReport: {},
     doctor: {}
 }
 
@@ -50,7 +50,7 @@ function reducer( state = initialState, action ) {
         {
             let _state = {
                 ...state,
-                history: action.payload
+                historyReport: action.payload
             };
             return _state
         }

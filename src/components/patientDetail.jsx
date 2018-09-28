@@ -8,6 +8,8 @@ class patientDetail extends React.Component {
         props.loadPatient(this.props.match.params.uid.toString());
         }
     
+    goBack = () => {this.props.history.goBack();}
+
     render() {
         const canSee = api.canSeeHistory(this.props.auth.role);
         return ((this.props.match.params.uid.toString() === this.props.auth.uid || canSee) ? (
@@ -17,8 +19,11 @@ class patientDetail extends React.Component {
                    Nombre: {this.props.patient.name}<br />
                    ID: {this.props.patient.uid}
                 </div>
+                <button id="goback" onClick={this.goBack}>Atrás</button>
             </div> ) :
-            (<div>Este usuario no tiene acceso a los datos de este paciente</div>)
+            (<div>Este usuario no tiene acceso a los datos de este paciente                     <button id="goback" onClick={this.goBack}>Atrás</button>
+            <button id="goback" onClick={this.goBack}>Atrás</button>
+            </div>)
         );
     }
 }

@@ -8,6 +8,7 @@ class patientsList extends React.Component {
         super(props);
         props.loadPatients();
     }
+    goBack = () => {this.props.history.goBack();}
     render() {
         //let detailroute = "/patientDetail/"
         return (
@@ -17,6 +18,7 @@ class patientsList extends React.Component {
                         item => <Link key={item.uid}
                          to={`/patientDetail/${item.uid}`}>
                          <div key={item.uid}>{item.name}</div></Link>)}
+                    <button id="goback" onClick={this.goBack}>Atrás</button>
             </div>
 
         );

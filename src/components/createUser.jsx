@@ -30,6 +30,8 @@ class CreateUser extends React.Component {
         document.getElementById("newuser").reset();
       }
 
+    goBack = () => {this.props.history.goBack();}
+
     render() {
         return (
             <div className="userRegistry">
@@ -46,6 +48,7 @@ class CreateUser extends React.Component {
                     <input type="text" name="password" placeholder="introduzca contraseña" value={this.state.newpass} onChange={this.handleChange}></input><br/>
                     <button type="submit">Registrar</button>
                 </form>   
+                <button id="goback" onClick={this.goBack}>Atrás</button>
             </div>
         )
     }

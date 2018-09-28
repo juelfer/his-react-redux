@@ -8,36 +8,39 @@ class historyDetail extends React.Component{
         props.loadHistory(this.props.match.params.uid.toString());
         }
     
+    goBack = () => {this.props.history.goBack();}
+
     render() {
-        const doctor = api.getDoctor(this.props.history.doctorid);
-        const patient = api.getPatient(this.props.history.uid);
+        const doctor = api.getDoctor(this.props.historyReport.doctorid);
+        const patient = api.getPatient(this.props.historyReport.uid);
         const canSee = api.canSeeHistory(this.props.auth.role);
-        return (this.props.history.history ? (
+        return (this.props.historyReport.history ? (
             (this.props.match.params.uid.toString() === this.props.auth.uid || canSee) ? (
             <div>
                 <h1>Historial de {patient.name}</h1>
                 <div>
                     Le atendió el doctor {doctor.name}<br/>
                     <p>Historial: </p>
-                    {this.props.history.history.map(
+                    {this.props.historyReport.history.map(
                         item => <div key={item}>{item}</div>)}<br/>
                 </div>
+                <button id="goback" onClick={this.goBack}>Atrás</button>
             </div>
-        ) : (<div>Usuario no autorizado</div>)) : (<div>Historial no encontrado</div>));
+        ) : (<div>Usuario no autorizado<button id="goback" onClick={this.goBack}>Atrás</button></div>)) : (<div>Historial no encontrado<button id="goback" onClick={this.goBack}>Atrás</button></div>));
     }
 }
 
 const HistoryDetail = connect(
     state => ({
         auth: state.auth,
-        history: state.history
+        historyReport: state.historyReport
     }),
     dispatch => ({
         loadHistory: (uid) => {
-            let history = api.getHistory(uid);
+            let historyReport = api.getHistory(uid);
             dispatch({
                 type:'LOAD_HISTORY',
-                payload: history
+                payload: historyReport
             })
         }
     })

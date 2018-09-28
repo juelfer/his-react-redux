@@ -9,13 +9,16 @@ class historiesList extends React.Component {
         super(props);
         props.loadHistories();
     }
+
+    goBack = () => {this.props.history.goBack();}
+
     render() {
         return (
             <div>
                 <h1>HistoriesList</h1>
                 {this.props.histories.map(item => <Link key={item.uid} to={`/historyDetail/${item.uid}`}><div key={item.uid}>{item.uid}</div></Link>)}
+                <button id="goback" onClick={this.goBack}>Atrás</button>
             </div>
-//{this.props.patients.map(item => <Link key={item.uid} to={`/patientDetail/${item.uid}`}><div key={item.uid}>{item.name}</div></Link>)}
         );
     }
 }
