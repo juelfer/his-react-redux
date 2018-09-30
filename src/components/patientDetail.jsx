@@ -1,29 +1,51 @@
 import React from "react";
 import api from "../services/api";
 import { connect } from "react-redux";
+import history from "./../navhistory";
+//import Navbar from "./../navbar";
 
 class patientDetail extends React.Component {
     constructor(props) {
         super(props);
         props.loadPatient(this.props.match.params.uid.toString());
         }
-    
-    goBack = () => {this.props.history.goBack();}
+
+    goBack = () => {history.goBack()};
+
+  /*   render() {
+        const canSee = api.canSeeHistory(this.props.auth.role);
+        return (this.props.patient !== undefined) ? 
+            (this.props.match.params.uid.toString() === this.props.auth.uid || canSee) ? (
+            <div>
+                <Navbar></Navbar>
+                <h1>Datos del paciente</h1>
+                <div>
+                   Nombre: {this.props.patient.name}<br />
+                   ID: {this.props.patient.uid}
+                </div>
+            </div> ) :
+            (<div>Este usuario no tiene acceso a los datos de este paciente
+            {/*<button id="goback" onClick={this.goBack}>Atrás</button>}
+            </div>
+        ): (<div><Navbar></Navbar>Paciente no encontrado</div>);
+    }*/
 
     render() {
+        let patientName;
+        (this.props.patient ? patientName = this.props.patient.name : patientName ="");
         const canSee = api.canSeeHistory(this.props.auth.role);
-        return ((this.props.match.params.uid.toString() === this.props.auth.uid || canSee) ? (
+        return (patientName !== "" || this.props.patient ? (
+            (this.props.match.params.uid.toString() === this.props.auth.uid || canSee) ? (
             <div>
                 <h1>Datos del paciente</h1>
                 <div>
                    Nombre: {this.props.patient.name}<br />
                    ID: {this.props.patient.uid}
                 </div>
-                <button id="goback" onClick={this.goBack}>Atrás</button>
-            </div> ) :
-            (<div>Este usuario no tiene acceso a los datos de este paciente                     <button id="goback" onClick={this.goBack}>Atrás</button>
-            <button id="goback" onClick={this.goBack}>Atrás</button>
-            </div>)
+                {<button id="goback" onClick={this.goBack}>Atrás</button>}
+            </div>
+        ) : (<div>Usuario no autorizado<br/>{<button id="goback" onClick={this.goBack}>Atrás</button>}</div>)
+        ) : (<div>No hay datos sobre este paciente<br/>{<button id="goback" onClick={this.goBack}>Atrás</button>}</div>)
         );
     }
 }

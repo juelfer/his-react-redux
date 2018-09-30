@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { Router, Switch, Route, Redirect } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import Dashboard from "./dashboard";
@@ -13,12 +13,14 @@ import HistoriesList from './components/historiesList.jsx';
 import PatientDetail from "./components/patientDetail";
 import HistoryDetail from "./components/historyDetail";
 
+import history from "./navhistory";
+
 class App extends Component {
   render() {
     return  (
       <Provider store={store}>
         <div className="App">
-          <BrowserRouter>
+          <Router history = {history}>
               <Switch>
                 <Route path="/" component={Dashboard} exact />
                 <Route path="/login" component={Login} exact />
@@ -30,7 +32,7 @@ class App extends Component {
                 <Redirect path="/entrar" to="/login" />
                 <Route component={NotFound} />
               </Switch>
-          </BrowserRouter>
+          </Router>
         </div>
       </Provider>
     );
