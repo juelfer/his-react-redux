@@ -1,5 +1,6 @@
 const initialState = {
     auth: null,
+    user: {},
     histories: [],
     patients: [],
     patient: {},
@@ -9,7 +10,7 @@ const initialState = {
 
 function reducer( state = initialState, action ) {
     switch ( action.type ) {
-    case 'USER_LOGGED_IN':
+        case 'USER_LOGGED_IN':
         {
             let _state = {
                 ...state,
@@ -18,7 +19,7 @@ function reducer( state = initialState, action ) {
 
             return _state;
         }
-    case 'USER_LOGGED_OUT':
+        case 'USER_LOGGED_OUT':
         {
             let _state = {
                 ...state,
@@ -27,6 +28,15 @@ function reducer( state = initialState, action ) {
 
             return _state;
         }
+
+        /* case 'LOAD_USER':
+        {
+            let _state = {
+                ...state,
+                user: action.payload
+            };
+            return _state
+        } */
 
         case 'LOAD_PATIENTS':
         {

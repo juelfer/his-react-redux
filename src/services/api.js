@@ -58,11 +58,14 @@ const api = {
        histories.push({uid: user.uid, doctorid: '2', history: []});
        localStorage.setItem('usersHISRedux', JSON.stringify(users));
     },
+    getUser(uid){
+        return users.find(user => user.uid === uid);
+    },
     getPatients(){
         return users.filter(user => user.role === "patient" );
     },
     getPatient(uid){
-        return users.find(user => user.uid === uid);
+        return users.find(user => user.uid === uid && user.role === "patient");
     },
     getHistories(){
         return histories;
@@ -73,7 +76,7 @@ const api = {
     getDoctor(doctorid){
         return users.find(user => user.uid === doctorid);
     },
-    canSeeHistory(role){
+    canSee(role){
         if (role === "admin" || role === "doctor") 
             return true;
     },

@@ -15,11 +15,12 @@ class historyDetail extends React.Component{
     render() {
         let doctor;
         (this.props.historyReport ? doctor = api.getDoctor(this.props.historyReport.doctorid) : doctor ="");
-        //const patient = api.getPatient(this.props.historyReport.uid);
-        const canSee = api.canSeeHistory(this.props.auth.role);
-        return (doctor !== "" || this.props.historyReport ? (
-            (this.props.match.params.uid.toString() === this.props.auth.uid || canSee) ? (
-            <div>
+        const canSee = api.canSee(this.props.auth.role);
+        return (this.props.match.params.uid.toString() === this.props.auth.uid || canSee) ? 
+        (
+            (doctor !== "" || this.props.historyReport) ?
+            (
+                <div>
                 <Navbar></Navbar>
                 <div>
                     Le atendió el doctor {doctor.name}<br/>
@@ -29,7 +30,17 @@ class historyDetail extends React.Component{
                 </div>
                 {/*<button id="goback" onClick={this.goBack}>Atrás</button>*/}
             </div>
-        ) : (<div><Navbar></Navbar>Usuario no autorizado</div>)) : (<div><Navbar></Navbar>Este paciente no existe o no tiene historial clínico</div>));
+        ) : (
+            <div>
+                <Navbar></Navbar>
+                Este paciente no existe o no tiene historial clínico
+            </div>)
+        ) : (
+            <div>
+                <Navbar></Navbar>
+                Usuario no autorizado
+            </div>
+        );
     }
 }
 

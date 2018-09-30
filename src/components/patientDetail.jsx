@@ -1,8 +1,8 @@
 import React from "react";
 import api from "../services/api";
 import { connect } from "react-redux";
-import history from "./../navhistory";
-//import Navbar from "./../navbar";
+//import history from "./../navhistory";
+import Navbar from "../navbar";
 
 class patientDetail extends React.Component {
     constructor(props) {
@@ -10,7 +10,7 @@ class patientDetail extends React.Component {
         props.loadPatient(this.props.match.params.uid.toString());
         }
 
-    goBack = () => {history.goBack()};
+    //goBack = () => {history.goBack()};
 
   /*   render() {
         const canSee = api.canSeeHistory(this.props.auth.role);
@@ -31,21 +31,27 @@ class patientDetail extends React.Component {
     }*/
 
     render() {
-        let patientName;
-        (this.props.patient ? patientName = this.props.patient.name : patientName ="");
-        const canSee = api.canSeeHistory(this.props.auth.role);
-        return (patientName !== "" || this.props.patient ? (
-            (this.props.match.params.uid.toString() === this.props.auth.uid || canSee) ? (
+        const canSee = api.canSee(this.props.auth.role);
+        return (this.props.match.params.uid.toString() === this.props.auth.uid || canSee) ? (
+            ( this.props.patient ) ? (
             <div>
+                <Navbar></Navbar>
                 <h1>Datos del paciente</h1>
                 <div>
                    Nombre: {this.props.patient.name}<br />
                    ID: {this.props.patient.uid}
                 </div>
-                {<button id="goback" onClick={this.goBack}>Atrás</button>}
             </div>
-        ) : (<div>Usuario no autorizado<br/>{<button id="goback" onClick={this.goBack}>Atrás</button>}</div>)
-        ) : (<div>No hay datos sobre este paciente<br/>{<button id="goback" onClick={this.goBack}>Atrás</button>}</div>)
+        ) : (
+            <div>
+            <Navbar></Navbar>
+            No hay datos sobre este paciente<br/>
+            </div>)
+        ) : (
+            <div>
+            <Navbar></Navbar>
+            Usuario no autorizado<br/>
+            </div>
         );
     }
 }

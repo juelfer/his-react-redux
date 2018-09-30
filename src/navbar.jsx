@@ -6,7 +6,7 @@ import history from "./../src/navhistory";
 class navbar extends React.Component {
   constructor(props) {
     super(props);
-    props.loadPatient(this.props.auth.uid);
+    props.loadUser(this.props.auth.uid);
   }
 
   goBack = () => {history.goBack();}
@@ -26,14 +26,14 @@ class navbar extends React.Component {
 const Navbar = connect(
   state => ({
       auth: state.auth,
-      patient: state.patient
+      //user: state.user
   }),
   dispatch => ({
-      loadPatient: (uid) => {
-          let patient = api.getPatient(uid);
+      loadUser: (uid) => {
+          let auth = api.getUser(uid);
           dispatch({
-              type:'LOAD_PATIENT',
-              payload: patient
+              type: 'USER_LOGGED_IN',
+              payload: auth
           })
       }
   })
