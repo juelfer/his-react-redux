@@ -3,6 +3,8 @@ import api from "../services/api";
 import { connect } from "react-redux";
 //import history from "./../navhistory";
 import Navbar from "../navbar";
+import { Redirect } from "react-router-dom";
+
 
 class patientDetail extends React.Component {
     constructor(props) {
@@ -31,6 +33,7 @@ class patientDetail extends React.Component {
     }*/
 
     render() {
+        if (!this.props.auth) return <Redirect to="/login" />;
         const canSee = api.canSee(this.props.auth.role);
         return (this.props.match.params.uid.toString() === this.props.auth.uid || canSee) ? (
             ( this.props.patient ) ? (

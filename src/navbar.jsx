@@ -2,6 +2,7 @@ import React from "react";
 import api from "./services/api";
 import {connect} from "react-redux";
 import history from "./../src/navhistory";
+import { Redirect } from "react-router-dom";
 
 class navbar extends React.Component {
   constructor(props) {
@@ -10,15 +11,21 @@ class navbar extends React.Component {
   }
 
   goBack = () => {history.goBack();}
+  logout = () => {
+    this.props.logoutStore();
+  };
 
   render(){
     //const loggedUser = api.getLoggedUser(this.props.auth.uid);
-    
+    if (!this.props.auth) {
+      return <Redirect to="/login" />;
+    } else {
 
     return <div>
       <div className="loggedUserNameDisplay">{this.props.auth.name}</div>
       <div className="goBackButton"><button id="goback" onClick={this.goBack}>Atrás</button></div>
-    </div>
+      <div className="logOutButton"></div><button onClick={this.logout}>Logout</button>
+    </div> }
   }
 
   
@@ -35,7 +42,11 @@ const Navbar = connect(
               type: 'USER_LOGGED_IN',
               payload: auth
           })
-      }
+      },
+      logoutStore: () =>
+      dispatch({
+        type: "USER_LOGGED_OUT"
+      })
   })
 )(navbar);
 

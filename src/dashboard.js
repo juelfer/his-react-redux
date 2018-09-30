@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 import "./dashboard.css";
+import Navbar from "./navbar";
 
 class dashboard extends React.Component {
   logout = () => {
@@ -42,16 +43,20 @@ class dashboard extends React.Component {
       ];
 
       return (
+        
         <section className="dashboard">
-          <h1> Dashboard</h1>
+        <Navbar></Navbar>
+        {/* <button onClick={this.logout}>Logout</button> */}
+
+         {/*  <h1> Dashboard</h1>
 
           <button onClick={this.logout}>Logout</button>
          
           <h4>
             {this.props.auth ? role + " " + name + " is logged in." : "no user is logged in"}
           </h4>
-
-         {
+ */}
+         { 
            links.map(
              item => (
               item.roles.includes(role) 
