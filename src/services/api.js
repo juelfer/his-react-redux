@@ -55,7 +55,7 @@ const api = {
     },
     createUser(user){
        users.push(user);
-       histories.push({uid: user.uid, doctorid: '2', history: []});
+       /* histories.push({uid: user.uid, doctorid: '2', history: []}); */
        localStorage.setItem('usersHISRedux', JSON.stringify(users));
     },
     getUser(uid){

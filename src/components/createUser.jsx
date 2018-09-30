@@ -6,7 +6,7 @@ class CreateUser extends React.Component {
     constructor(props){ 
         super(props);
         this.state = {
-            role: '',
+            role: 'patient',
             name: '',
             uid:'',
             username:'',
@@ -31,7 +31,7 @@ class CreateUser extends React.Component {
         document.getElementById("newuser").reset();
       }
 
-    //goBack = () => {this.props.history.goBack();}
+    goBack = () => {this.props.history.goBack();}
 
     render() {
         return (
@@ -39,7 +39,12 @@ class CreateUser extends React.Component {
                 <Navbar></Navbar>
                 <form id="newuser" onSubmit={this.handleSubmit.bind(this)}>
                     <label>Rol: </label>
-                    <input type="text" name="role" placeholder="introduzca rol" value={this.state.newrole} onChange={this.handleChange}></input><br/>
+                   {/*  <input type="text" name="role" placeholder="introduzca rol" value={this.state.newrole} onChange={this.handleChange}></input><br/> */}
+                    <select name="role" value={this.state.value} onChange={this.handleChange}>>
+                        <option value="patient">Paciente</option>
+                        <option value="doctor">Doctor</option>
+                        <option value="technical">Técnico</option>
+                    </select>
                     <label>ID: </label>
                     <input type="text" name="uid" placeholder="introduzca id" value={this.state.newid} onChange={this.handleChange}></input><br/>
                     <label>Nombre: </label>
@@ -50,7 +55,7 @@ class CreateUser extends React.Component {
                     <input type="text" name="password" placeholder="introduzca contraseña" value={this.state.newpass} onChange={this.handleChange}></input><br/>
                     <button type="submit">Registrar</button>
                 </form>   
-                {/*<button id="goback" onClick={this.goBack}>Atrás</button>*/}
+                {/* <button id="goback" onClick={this.goBack}>Atrás</button> */}
             </div>
         )
     }

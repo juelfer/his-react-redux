@@ -33,7 +33,7 @@ class historyDetail extends React.Component{
         ) : (
             <div>
                 <Navbar></Navbar>
-                Este paciente no existe o no tiene historial clínico
+                No se encuentra historial
             </div>)
         ) : (
             <div>
