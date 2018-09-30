@@ -19,7 +19,7 @@ class historiesList extends React.Component {
             <div>
                 <Navbar></Navbar>
                 <div className="historiesList">
-                    {this.props.histories.map(item => <Link key={item.uid} to={`/historyDetail/${item.uid}`}><div key={item.uid}>{item.uid}</div></Link>)}
+                    {this.props.histories.map(item => <Link key={item.uid} to={`/historyDetail/${item.uid}`}><div key={item.uid}>{api.getPatient(item.uid).name}</div></Link>)}
                 </div>
                 {/*<button id="goback" onClick={this.goBack}>Atrás</button>*/}
             </div>
