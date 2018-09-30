@@ -18,13 +18,14 @@ class navbar extends React.Component {
 
   render(){
     //const loggedUser = api.getLoggedUser(this.props.auth.uid);
+    //console.log(history.location.pathname);
     if (!this.props.auth) {
       return <Redirect to="/login" />;
     } else {
 
     return <div className="navigationBar">
       <div className="loggedUserNameDisplay">{this.props.auth.name}</div>
-      <div className="goBackButton"><button id="goback" onClick={this.goBack}>Atrás</button></div>
+      {(history.location.pathname!=="/") ? (<div className="goBackButton"><button id="goback" onClick={this.goBack}>Atrás</button></div>) : (<div className="goBackButton"></div>)}
       <div className="logOutButton"><button onClick={this.logout}>Logout</button></div>
     </div> }
   }
