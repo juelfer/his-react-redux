@@ -3,6 +3,7 @@ import api from "../services/api";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Navbar from "../navbar";
+import "./historiesList.css";
 
 class historiesList extends React.Component {
 
@@ -17,8 +18,9 @@ class historiesList extends React.Component {
         return (
             <div>
                 <Navbar></Navbar>
-                <h1>HistoriesList</h1>
-                {this.props.histories.map(item => <Link key={item.uid} to={`/historyDetail/${item.uid}`}><div key={item.uid}>{item.uid}</div></Link>)}
+                <div className="historiesList">
+                    {this.props.histories.map(item => <Link key={item.uid} to={`/historyDetail/${item.uid}`}><div key={item.uid}>{item.uid}</div></Link>)}
+                </div>
                 {/*<button id="goback" onClick={this.goBack}>Atrás</button>*/}
             </div>
         );

@@ -1,26 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 .login {
-    height: 100vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background:#ccc;
+    background:white;
 }
 .login form{
     display: flex;
-
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: white;
+    background: rgb(65, 237, 243);
     border-radius: 10px;
     padding: 3em;
+    font-family: 'Montserrat', sans-serif;
+
 }
 .login .error {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
      background: white;
      border-radius: 10px;
      padding: 1em;
-     color:red;
+     color:white;
+     background: red;
+     font-family: 'Montserrat', sans-serif;
+
  
 }
 .login > * {

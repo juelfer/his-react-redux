@@ -1,23 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
-.dashboard a {
+.historiesList {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: rgb(65, 237, 243);
-    border-radius: 10px;
+    justify-content: flex-start;
     padding: 1em;
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
-    color: white;
-    font-size: 2em;
+    color: black;
+    font-size: 1em;
     margin-top: 1vh;
     margin-bottom: 1vh;
     font-weight: bolder;
-}
-
-.dashboard a:hover {
-    background: white;
-    color: rgb(65, 237, 243);
 }

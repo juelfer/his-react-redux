@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 //import history from "./../navhistory";
 import Navbar from "../navbar";
 import { Redirect } from "react-router-dom";
+import "./patientDetail.css";
 
 
 class patientDetail extends React.Component {
@@ -39,21 +40,24 @@ class patientDetail extends React.Component {
             ( this.props.patient ) ? (
             <div>
                 <Navbar></Navbar>
-                <h1>Datos del paciente</h1>
-                <div>
+                <div className="patientDetail">
                    Nombre: {this.props.patient.name}<br />
                    ID: {this.props.patient.uid}
                 </div>
             </div>
         ) : (
-            <div>
-            <Navbar></Navbar>
-            No hay datos sobre este paciente<br/>
+            <div> 
+                <Navbar></Navbar>
+                <div className="patientDetail">
+                    <p>No hay datos sobre este paciente</p>
+                </div>
             </div>)
         ) : (
             <div>
-            <Navbar></Navbar>
-            Usuario no autorizado<br/>
+                <Navbar></Navbar>
+                <div className="patientDetail">
+                    <p>Usuario no autorizado</p>
+                </div>
             </div>
         );
     }

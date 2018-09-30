@@ -3,6 +3,7 @@ import api from "../services/api";
 import { connect } from "react-redux";
 import {Link} from "react-router-dom";
 import Navbar from "../navbar";
+import "./patientsList.css";
 
 class patientsList extends React.Component {
     constructor(props) {
@@ -15,11 +16,17 @@ class patientsList extends React.Component {
         return (
             <div>
                 <Navbar></Navbar>
-                <h1>PatientsLists</h1>
+                <div className="patientsList">
                     {this.props.patients.map(
                         item => <Link key={item.uid}
-                         to={`/patientDetail/${item.uid}`}>
-                         <div key={item.uid}>{item.name}</div></Link>)}
+                            to={`/patientDetail/${item.uid}`}>
+                            <div key={item.uid}>
+                                {item.name}
+                            </div>
+                        </Link>
+                        )
+                    }
+                </div>
                     {/*<button id="goback" onClick={this.goBack}>Atrás</button>*/}
             </div>
 

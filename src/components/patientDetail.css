@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.patientDetail {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 1em;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    color: black;
+    font-size: 1em;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    font-weight: bolder;
+}

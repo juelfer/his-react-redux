@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.navigationBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: rgb(65, 237, 243);
+    border-radius: 10px;
+    padding: 0.5em;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    margin-bottom: 5em;
+    font-weight: 500;
+}
+
+.loggedUserNameDisplay{
+    flex-direction: row;
+    justify-content: flex-start;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    width: 70vw;
+}
+
+.goBackButton{
+    margin-left: 24.5vw;
+}
+
+.logOutButton{
+    margin-left: 1vw;
+}

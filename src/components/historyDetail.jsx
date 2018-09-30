@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 //import history from "../navhistory";
 import Navbar from "../navbar";
 import { Redirect } from "react-router-dom";
+import "./historyDetail.css";
 
 class historyDetail extends React.Component{
     constructor(props){
@@ -25,23 +26,27 @@ class historyDetail extends React.Component{
             (
                 <div>
                 <Navbar></Navbar>
-                <div>
-                    Le atendió el doctor {doctor.name}<br/>
+                <div className="historyDetail">
+                    <p>Le atendió el doctor {doctor.name}</p>
                     <p>Historial: </p>
                     {this.props.historyReport.history.map(
-                        item => <div key={item}>{item}</div>)}<br/>
+                        item => <div key={item}><p>{item}</p></div>)}
                 </div>
                 {/*<button id="goback" onClick={this.goBack}>Atrás</button>*/}
             </div>
         ) : (
             <div>
                 <Navbar></Navbar>
-                No se encuentra historial
+                <div className="historyDetail">
+                    No se encuentra historial
+                </div>
             </div>)
         ) : (
             <div>
-                <Navbar></Navbar>
-                Usuario no autorizado
+               <Navbar></Navbar>
+                <div className="historyDetail">
+                    Usuario no autorizado
+                </div>
             </div>
         );
     }

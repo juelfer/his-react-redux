@@ -3,6 +3,7 @@ import api from "./services/api";
 import {connect} from "react-redux";
 import history from "./../src/navhistory";
 import { Redirect } from "react-router-dom";
+import "./navbar.css";
 
 class navbar extends React.Component {
   constructor(props) {
@@ -21,10 +22,10 @@ class navbar extends React.Component {
       return <Redirect to="/login" />;
     } else {
 
-    return <div>
+    return <div className="navigationBar">
       <div className="loggedUserNameDisplay">{this.props.auth.name}</div>
       <div className="goBackButton"><button id="goback" onClick={this.goBack}>Atrás</button></div>
-      <div className="logOutButton"></div><button onClick={this.logout}>Logout</button>
+      <div className="logOutButton"><button onClick={this.logout}>Logout</button></div>
     </div> }
   }
 
